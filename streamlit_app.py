@@ -247,6 +247,18 @@ def generate_pdf_report(analysis_results, clinician_notes=""):
     """Generate comprehensive PDF report of analysis"""
     pdf = FPDF()
     pdf.add_page()
+
+    # Register the Unicode font (make sure DejaVuSans.ttf is in your project folder)
+    pdf.add_font("DejaVu", "", "DejaVuSans.ttf", uni=True)
+    
+    # Set the font to DejaVu for UTF-8 support
+    pdf.set_font("DejaVu", size=12)
+    
+    # Now add your text — this can include Unicode characters like "ə"
+    pdf.cell(0, 10, "The cat sat on the mət", ln=True)
+    
+    # Save or output the PDF
+    pdf.output("output.pdf")
     
     # Title
     pdf.set_font("Arial", 'B', 16)
@@ -568,6 +580,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
