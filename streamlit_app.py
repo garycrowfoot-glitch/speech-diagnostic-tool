@@ -340,7 +340,7 @@ with st.sidebar:
     speech_rules = load_speech_rules()
     st.write(f"**Conditions Tracked:** {len(speech_rules)}")
     with st.expander("View All Conditions"):
-        st.dataframe(speech_rules[['Condition', 'Age_of_concern']], use_container_width=True)
+        st.dataframe(speech_rules[['Condition', 'Age_of_concern']], width='stretch')
 
 # Main content area
 col1, col2 = st.columns([1, 1])
@@ -450,7 +450,7 @@ if st.session_state.analysis_complete and st.session_state.analysis_results:
                     'Produced': diff['produced'] if diff['produced'] else '(none)',
                     'Position': diff['position']
                 })
-            st.dataframe(pd.DataFrame(diff_data), use_container_width=True)
+            st.dataframe(pd.DataFrame(diff_data), width='stretch')
         else:
             st.success("✅ No significant differences detected!")
     
@@ -482,7 +482,7 @@ if st.session_state.analysis_complete and st.session_state.analysis_results:
             st.subheader("📚 Related Clinical Information")
             st.write("For comprehensive clinical context, review the full condition database:")
             with st.expander("View All Clinical Conditions"):
-                st.dataframe(speech_rules, use_container_width=True)
+                st.dataframe(speech_rules, width='stretch')
     
     with tab3:
         st.subheader("Clinical Notes")
@@ -568,3 +568,4 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
