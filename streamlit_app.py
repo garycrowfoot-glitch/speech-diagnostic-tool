@@ -6,13 +6,6 @@ from datetime import datetime
 import difflib
 from fpdf import FPDF
 
-pdf = FPDF()
-pdf.add_page()
-
-# Register Unicode font (make sure the TTF file is in the same folder)
-pdf.add_font("DejaVu", "", "DejaVuSans.ttf", uni=True)
-pdf.set_font("DejaVu", size=12)
-
 # Page configuration
 st.set_page_config(
     page_title="Speech Diagnostic Support Tool",
@@ -575,5 +568,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
